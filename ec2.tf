@@ -1,4 +1,4 @@
-resource "aws_instance" "infra" {
+resource "aws_instance infra" {
 
     ami = "${lookup(var.AMI, var.AWS_REGION)}"
     instance_type = "t2.micro"
@@ -10,9 +10,8 @@ resource "aws_instance" "infra" {
     vpc_security_group_ids = ["${aws_security_group.ssh-allowed.id}"]
 
     # the Public SSH key
-    key_name = "${aws_key_pair.dev-region-key-pair.id}
+    key_name = "${aws_key_pair.dev-region-key-pair.id}"
 
-    # JAVA 1.8, Jenkins & Ansible installtion 
     provisioner "file" {
         source = "setup.sh"
         destination = "/tmp/setup.sh"
@@ -31,7 +30,7 @@ resource "aws_instance" "infra" {
     
 }
 
-resource "aws_instance" "web" {
+resource "aws_instance web" {
 
     ami = "${lookup(var.AMI, var.AWS_REGION)}"
     instance_type = "t2.micro"
