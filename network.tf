@@ -1,8 +1,8 @@
 resource "aws_internet_gateway" "dev-igw" {
     vpc_id = "${aws_vpc.dev-vpc.id}"
-    tags {
-        Name = "dev-igw"
-    }
+tags = {
+    Name = "dev-igw"
+  }
 }
 
 resource "aws_route_table" "dev-public-crt" {
