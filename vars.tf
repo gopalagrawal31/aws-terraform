@@ -12,10 +12,9 @@ variable "PUBLIC_KEY_PATH" {
 variable "EC2_USER" {
   default = "ec2-user"
 }
-
 variable "AMI" {
     type = "map"
-
+    
     default {
         eu-west-2 = "ami-7ad7c21e"
     }
