@@ -13,9 +13,9 @@ resource "aws_route_table" "dev-public-crt" {
         gateway_id = "${aws_internet_gateway.dev-igw.id}" 
     }
     
-    tags {
-        Name = "dev-public-crt"
-    }
+tags = {
+    Name = "dev-public-crt"
+  }
 }
 
 resource "aws_route_table_association" "dev-crta-public-subnet-1"{
@@ -62,8 +62,8 @@ resource "aws_security_group" "ssh-allowed" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-  
-    tags {
-        Name = "ssh-allowed"
-    }
+	
+tags = {
+    Name = "SSH allowed"
+  }
 }
