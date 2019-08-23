@@ -42,7 +42,7 @@ resource "aws_instance" "web" {
     vpc_security_group_ids = ["${aws_security_group.ssh-allowed.id}"]
 
     # the Public SSH key
-    key_name = "${aws_key_pair.dev-region-key-pair.id}
+    key_name = "${aws_key_pair.dev-region-key-pair.id}"
 
     connection {
         user = "${var.EC2_USER}"
