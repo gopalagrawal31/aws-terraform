@@ -37,7 +37,31 @@ resource "aws_security_group" "ssh-allowed" {
         to_port = 22
         protocol = "tcp" 
         cidr_blocks = ["0.0.0.0/0"]
-    }    
+    }
+    ingress {
+        from_port = 80
+        to_port = 80
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    ingress {
+        from_port = 8080   # Jenkins port
+        to_port = 8080
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    ingress {
+        from_port = 2222    # Ansible port
+        to_port = 2222
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    ingress {
+        from_port = 2375      #docker port
+        to_port = 2375
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
   
     tags {
         Name = "ssh-allowed"
