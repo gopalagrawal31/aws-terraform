@@ -1,4 +1,4 @@
-resource "aws_instance infra" {
+resource "aws_instance" "infra" {
 
     ami = "${lookup(var.AMI, var.AWS_REGION)}"
     instance_type = "t2.micro"
@@ -30,7 +30,7 @@ resource "aws_instance infra" {
     
 }
 
-resource "aws_instance web" {
+resource "aws_instance" "web" {
 
     ami = "${lookup(var.AMI, var.AWS_REGION)}"
     instance_type = "t2.micro"
