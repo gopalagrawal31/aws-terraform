@@ -11,7 +11,7 @@ It creates following AWS resources;
 
 once you clone this repo, please execute follow commands
 ```
-ssh-keygen -f dev-region-key-pair
+ssh-keygen -f dev-region-key-pair (on same location where you have above .tf files)
 terraform init
 terraform plan -out terraform.out
 terraform apply terraform.out
