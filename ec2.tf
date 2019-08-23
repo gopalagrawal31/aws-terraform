@@ -12,10 +12,23 @@ resource "aws_instance" "infra" {
     # the Public SSH key
     key_name = "${aws_key_pair.dev-region-key-pair.id}
 
+    # JAVA 1.8, Jenkins & Ansible installtion 
+    provisioner "file" {
+        source = "setup.sh"
+        destination = "/tmp/setup.sh"
+    }
+    provisioner "remote-exec" {
+        inline = [
+             "chmod +x /tmp/setup.sh",
+             "sudo /tmp/setup.sh"
+        ]
+    }
+
     connection {
         user = "${var.EC2_USER}"
         private_key = "${file("${var.PRIVATE_KEY_PATH}")}"
     }
+    
 }
 
 resource "aws_instance" "web" {
