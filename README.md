@@ -2,12 +2,12 @@
 "create aws resources using terraform"
 
 It creates following AWS resources; 
-* 1 VPC, 
+* 1 vpc, 
 * 1 public subnet,
 * 1 prviate subnet,
 * 1 Internet Gateway, 
-* 1 Security Group
-* 2 EC2 
+* 1 Security Group,
+* 2 ec2 instances 
 
 once you clone this repo, please execute follow commands
 ```
