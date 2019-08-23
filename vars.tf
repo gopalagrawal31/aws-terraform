@@ -1,5 +1,5 @@
 variable "AWS_REGION" {    
-    default = "eu-west-2"
+    default = "ap-south-1"
 }
 variable "PRIVATE_KEY_PATH" {
   default = "dev-region-key-pair"
@@ -15,6 +15,6 @@ variable "EC2_USER" {
 variable "AMI" {
   type = "map"
   default = {
-    "eu-west-2" = "ami-7ad7c21e"
+    "ap-south-1" = "ami-54d2a63b"
   }
 }
