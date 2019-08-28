@@ -25,7 +25,7 @@ resource "aws_instance" "infra" {
 
     connection {
         type = "ssh"
-        host = self.public_ip
+        host = "self.public_ip"
         user = "${var.EC2_USER}"
         private_key = "${file("${var.PRIVATE_KEY_PATH}")}"
     }
