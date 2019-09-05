@@ -50,6 +50,16 @@ resource "aws_instance" "web" {
         user = "${var.EC2_USER}"
         private_key = "${file("${var.PRIVATE_KEY_PATH}")}"
     }
+	provisioner "file" {
+        source = "tomcat_setup.sh"
+        destination = "/tmp/tomcat_setup.sh"
+    }
+    provisioner "remote-exec" {
+        inline = [
+             "chmod +x /tmp/tomcat_setup.sh",
+             "sudo /tmp/tomcat_setup.sh"
+        ]
+    }
 }
 
 resource "aws_key_pair" "dev-region-key-pair" {
