@@ -10,6 +10,9 @@ sudo apt-get update
 sudo apt-get install jenkins
 chkconfig jenkins on
 
+echo "Install maven & git"
+sudo apt-get install  maven git-core
+
 echo "Install Ansible stable release"
 sudo apt update
 sudo apt install software-properties-common
