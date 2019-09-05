@@ -14,7 +14,7 @@ resource "aws_subnet" "dev-subnet-public-1" {
     vpc_id = "${aws_vpc.dev-vpc.id}"
     cidr_block = "172.20.10.0/24"
     map_public_ip_on_launch = "true"
-    availability_zone = "eu-west-2a"
+    availability_zone = "ap-south-1a"
 
 tags = {
     Name = "dev-subnet-public-1"
@@ -24,7 +24,7 @@ tags = {
 resource "aws_subnet" "dev-subnet-private-1" {
     vpc_id = "${aws_vpc.dev-vpc.id}"
     cidr_block = "172.20.20.0/24"
-    availability_zone = "eu-west-2a"
+    availability_zone = "ap-south-1a"
 
 tags = {
     Name = "dev-subnet-private-1"
