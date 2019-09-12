@@ -15,6 +15,6 @@ variable "EC2_USER" {
 variable "AMI" {
   type = "map"
   default = {
-    "ap-south-1" = "ami-0cf8402efdb171312"
+    "ap-south-1" = "ami-0cb0e70f44e1a4bb5"
   }
 }
