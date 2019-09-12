@@ -1,20 +1,15 @@
 #!/bin/bash
-echo "Install Jenkins stable release"
-sudo add-apt-repository ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get install openjdk-8-jdk
+yum update -y
+yum install -y java-1.8.0-openjdk-devel
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sleep 5
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+echo "instal jenkins"
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo yum install -y jenkins
 
-wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-sudo apt-get update
-sudo apt-get install jenkins
-chkconfig jenkins on
+sudo service jenkins start
 
-echo "Install maven & git"
-sudo apt-get install  maven git-core
-
-echo "Install Ansible stable release"
-sudo apt update
-sudo apt install software-properties-common
-sudo apt-add-repository --yes --update ppa:ansible/ansible
-sudo apt install ansible
+sudo chkconfig --add jenkin
